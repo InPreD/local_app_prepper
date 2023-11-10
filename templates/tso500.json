@@ -8,7 +8,7 @@
     "TSO500.isSingleLaneMode": false,
     "TSO500.lrmMode": false,
     "TSO500.resourceFolder": "RESOURCEFOLDER",
-    "TSO500.runFolder": "RUNFOLDER",
+    "TSO500.runFolder": "'RUNFOLDER'",
     "TSO500.sampleOrPairIDs": "",
     "TSO500.sampleSheetPrefix": "TSO500S",
     "TSO500.sampleSheetPath": "SAMPLESHEETPATH",
