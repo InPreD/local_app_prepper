@@ -1,5 +1,5 @@
 {
-    "GatherResultsWorkflow.analysisFolder": ".",
+    "GatherResultsWorkflow.analysisFolder": "ANALYSISFOLDER",
     "GatherResultsWorkflow.dsdmWildcardList": [
         "*/Msi/dsdm.json",
         "*/Contamination/dsdm.json",
@@ -35,7 +35,7 @@
     "GatherResultsWorkflow.isNovaSeq": false,
     "GatherResultsWorkflow.isRUO": true,
     "GatherResultsWorkflow.lrmMode": false,
-    "GatherResultsWorkflow.resourceFolder": "/opt/illumina/resources",
+    "GatherResultsWorkflow.resourceFolder": "RESOURCEFOLDER",
     "GatherResultsWorkflow.runFolder": "RUNFOLDER",
     "GatherResultsWorkflow.sampleSheetPrefix": "TSO500S",
     "GatherResultsWorkflow.sampleSheetPath": "SAMPLESHEETPATH",
