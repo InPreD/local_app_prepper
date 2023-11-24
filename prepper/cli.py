@@ -40,6 +40,7 @@ def cli(gather_input_json_template, input, run_info_xml, samples, tso500_input_j
     # generate inputs.json files for each sample for TSO500 DNA and RNA analysis
     # commented out as we don't want an automatic check but rather have people specify input fastq files
     for sample in samples.split(','):
+        demultiplex['TSO500.demultiplex'] = False
         tso500['TSO500.sampleOrPairIDs'] = sample
         tso500['TSO500.startFromFastq'] = True
         tso500['TSO500.fastqFolder'] = 'FASTQFOLDER'
