@@ -47,7 +47,6 @@ def cli(gather_input_json_template, input, run_info_xml, samples, tso500_input_j
         write_json(tso500, ('tso500_%s.json' % sample))
 
     # generate input.json for gather
-    gather['GatherResultsWorkflow.startFromFastq'] = True
     write_json(gather, 'gather.json')
 
 """
