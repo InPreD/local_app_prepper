@@ -41,7 +41,6 @@
     "GatherResultsWorkflow.sampleSheetPath": "SAMPLESHEETPATH",
     "GatherResultsWorkflow.sarjeantConfigFiles": "/opt/illumina/wdl/resources/sarjeant",
     "GatherResultsWorkflow.startFromFastq": false,
-    "GatherResultsWorkflow.stepsToRunFilePath": "/opt/illumina/wdl/resources/stepsToRun/TSO500_stepsToRun.json",
     "GatherResultsWorkflow.workflowName": "TruSight_Oncology_500",
     "GatherResultsWorkflow.workflowVersion": "ruo-2.2.0.12"
 }
