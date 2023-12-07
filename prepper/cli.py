@@ -3,11 +3,9 @@ import click, glob, json, os, re, sys
 
 """
     Global variables
-        - glob to detect fastq files in run folder
         - regex to extract first letters from Instrument field in RunInfo.xml
         - all instrument abbreviations associated with NovaSeq
 """
-fastq_file_glob = 'Alignment*/**/*.fastq.gz'
 instrument_abbreviation_rex = '^\D+'
 novaseq = [
     'A'
@@ -38,7 +36,6 @@ def cli(gather_input_json_template, input, run_info_xml, samples, tso500_input_j
     write_json(demultiplex, 'demultiplex.json')
 
     # generate inputs.json files for each sample for TSO500 DNA and RNA analysis
-    # commented out as we don't want an automatic check but rather have people specify input fastq files
     for sample in samples.split(','):
         demultiplex['TSO500.demultiplex'] = False
         tso500['TSO500.sampleOrPairIDs'] = sample
@@ -48,16 +45,6 @@ def cli(gather_input_json_template, input, run_info_xml, samples, tso500_input_j
 
     # generate input.json for gather
     write_json(gather, 'gather.json')
-
-"""
-    use glob to find fastq and return folder containing them or empty string if not - currently not used anymore, TODO: remove
-"""
-def detect_fastq(path):
-    fastq_files = glob.glob(os.path.join(path, fastq_file_glob), recursive=True)
-    if len(fastq_files) > 0:
-        return True, os.path.normpath(os.path.dirname(fastq_files[0]).replace(path, 'RUNFOLDER/'))
-    else:
-        return False, ''
 
 """
     read json template
