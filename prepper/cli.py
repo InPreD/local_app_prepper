@@ -25,25 +25,25 @@ def cli(gather_input_json_template, input, run_info_xml, samples, tso500_input_j
     tso500 = get_json(tso500_input_json_template)
     gather = get_json(gather_input_json_template)
 
-    # set isNovaSeq var
+    # determine if sequencing was performed on a NovaSeq
     isNovaSeq = is_novaseq(os.path.join(input, run_info_xml))
-    tso500['TSO500.isNovaSeq'] = isNovaSeq
-    gather['GatherResultsWorkflow.isNovaSeq'] = isNovaSeq
 
     # generate inputs.json for TSO500 demultiplexing
     demultiplex = copy.deepcopy(tso500)
     demultiplex['TSO500.demultiplex'] = True
+    demultiplex['TSO500.isNovaSeq'] = isNovaSeq
     write_json(demultiplex, 'demultiplex.json')
 
     # generate inputs.json files for each sample for TSO500 DNA and RNA analysis
     for sample in samples.split(','):
-        demultiplex['TSO500.demultiplex'] = False
+        tso500['TSO500.isNovaSeq'] = isNovaSeq
         tso500['TSO500.sampleOrPairIDs'] = sample
         tso500['TSO500.startFromFastq'] = True
         tso500['TSO500.fastqFolder'] = 'FASTQFOLDER'
         write_json(tso500, ('tso500_%s.json' % sample))
 
     # generate input.json for gather
+    gather['GatherResultsWorkflow.isNovaSeq'] = isNovaSeq
     write_json(gather, 'gather.json')
 
 """
