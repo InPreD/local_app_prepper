@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-import click, glob, json, os, re, sys
+import click, copy, glob, json, os, re, sys
 
 """
     Global variables
@@ -31,7 +31,7 @@ def cli(gather_input_json_template, input, run_info_xml, samples, tso500_input_j
     gather['GatherResultsWorkflow.isNovaSeq'] = isNovaSeq
 
     # generate inputs.json for TSO500 demultiplexing
-    demultiplex = tso500
+    demultiplex = copy.deepcopy(tso500)
     demultiplex['TSO500.demultiplex'] = True
     write_json(demultiplex, 'demultiplex.json')
 
