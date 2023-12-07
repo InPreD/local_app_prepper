@@ -1,0 +1,4 @@
+__pycache__/
+demultiplex.json
+gather.json
+tso500_*.json
