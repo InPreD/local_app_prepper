@@ -40,7 +40,7 @@ $ apptainer run -B /path/to/runfolder:/containerpath/to/runfolder:ro docker://in
 $ singularity run -B /path/to/runfolder:/containerpath/to/runfolder:ro docker://inpred/local_app_prepper:latest bash
 ```
 
-Both `/path/to/runfolder` and `/containerpath/to/runfolder` should be replaced with the actual path to the run folder and the path you chose for mounting the folder inside the container,respectively.
+Both `/path/to/runfolder` and `/containerpath/to/runfolder` should be replaced with the actual path to the run folder and the path you chose for mounting the folder inside the container, respectively.
 
 Once you are inside the container, you can execute the following to get some help text:
 
@@ -48,7 +48,7 @@ Once you are inside the container, you can execute the following to get some hel
 $ local_app_prepper.py --help
 ```
 
-And to produce `inputs.json` files, simply run:
+And to produce `.json` files, simply run:
 
 ```bash
 $ local_app_prepper.py -i /containerpath/to/runfolder -s <sample 1 id>,<sample 2 id>,...
