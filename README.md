@@ -24,7 +24,25 @@ Running the LocalApp requires the specification of a least one `inputs.json` fil
 
 ## Usage :rocket:
 
-There is a docker image available at `inpred/local_app_prepper:latest` which is the recommended way of running this tool. Help text is printed like so:
+The docker image `inpred/local_app_prepper:latest` is available at dockerhub. The recommended way of running the tool is as a container (docker, singularity/apptainer).
+
+Start your **docker** container like so:
+
+```bash
+$ docker run --rm -it -v /path/to/runfolder:/containerpath/to/runfolder:ro inpred/local_app_prepper:latest bash
+```
+
+or if you are more a **apptainer/singularity** kind of person:
+
+```bash
+$ apptainer run -B /path/to/runfolder:/containerpath/to/runfolder:ro docker://inpred/local_app_prepper:latest bash
+# OR
+$ singularity run -B /path/to/runfolder:/containerpath/to/runfolder:ro docker://inpred/local_app_prepper:latest bash
+```
+
+Both `/path/to/runfolder` and `/containerpath/to/runfolder` should be replaced with the actual path to the run folder and the path you chose for mounting the folder inside the container,respectively.
+
+Once you are inside the container, you can execute the following to get some help text:
 
 ```bash
 $ local_app_prepper.py --help
@@ -33,5 +51,7 @@ $ local_app_prepper.py --help
 And to produce `inputs.json` files, simply run:
 
 ```bash
-$ local_app_prepper.py -i <run id> -s <sample 1 id>,<sample 2 id>,...
+$ local_app_prepper.py -i /containerpath/to/runfolder -s <sample 1 id>,<sample 2 id>,...
 ```
+
+`/containerpath/to/runfolder` should be replaced with the actual path you mounted the run folder at inside the container and `<sample 1 id>` etc. should be a comma-separated list of your sample ids.
