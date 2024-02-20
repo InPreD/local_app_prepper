@@ -1,0 +1,19 @@
+{
+    "TSO500.additionalBclConverterArgs": "--strict-mode true",
+    "TSO500.analysisFolder": "ANALYSISFOLDER",
+    "TSO500.demultiplex": false,
+    "TSO500.fastqFolder": "",
+    "TSO500.isNovaSeq": false,
+    "TSO500.isRUO": true,
+    "TSO500.isSingleLaneMode": false,
+    "TSO500.lrmMode": false,
+    "TSO500.resourceFolder": "RESOURCEFOLDER",
+    "TSO500.runFolder": "RUNFOLDER",
+    "TSO500.sampleSheetPrefix": "TSO500S",
+    "TSO500.sampleSheetPath": "SAMPLESHEETPATH",
+    "TSO500.sarjeantConfigFiles": "/opt/illumina/wdl/resources/sarjeant",
+    "TSO500.startFromFastq": false,
+    "TSO500.stepsToRunFilePath": "/opt/illumina/wdl/resources/stepsToRun/TSO500_stepsToRun.json",
+    "TSO500.workflowName": "TruSight_Oncology_500",
+    "TSO500.workflowVersion": "ruo-2.2.0.12"
+}
